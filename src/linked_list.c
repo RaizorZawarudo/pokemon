@@ -65,21 +65,3 @@ llist_t *create_list(void)
     list->health = 0;
     return (list);
 }
-/* 
-void sort_alpha(llist_t *pokemon)
-{
-    llist_t  *list = pokemon;
-    char *tmp = NULL;
-
-    list = pokemon;
-    while (list)
-    {
-        if (strcmp(list->name, list->next->name) < 0)
-        {
-            tmp = list->name;
-            list->name = list->next->name;
-            list->next->name = tmp;
-        }
-        list = list->next;
-    }
-} */

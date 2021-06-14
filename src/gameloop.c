@@ -82,4 +82,8 @@ void gameloop(llist_t *pokemons, char **av)
             gameover= end_fight(pok1, pok2);
         }
     }
+    /* free(pok1->name);
+    free(pok2->name); */
+    free(pok1);
+    free(pok2);
 }
