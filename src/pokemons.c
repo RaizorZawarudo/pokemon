@@ -36,7 +36,6 @@ void swapper(llist_t *node1, llist_t *node2)
     free(tempvar);
 }
 
-
 void sort_by_name(llist_t *pokemons)
 {
     llist_t *temp1 = NULL;
@@ -60,8 +59,11 @@ void sort_by_name(llist_t *pokemons)
 
 void print_pokemon_list(llist_t *pokemons)
 {
-    for (pokemons = pokemons->prev; pokemons != NULL; pokemons = pokemons->next) {
-        my_printf("Pokemon %s has %d attack, %d defense, %d speed and %d health", pokemons->name, pokemons->atk, pokemons->def, pokemons->spd, pokemons->health);
+    for (pokemons = pokemons->prev; pokemons != NULL;
+        pokemons = pokemons->next) {
+        my_printf("Pokemon %s has %d attack,", pokemons->name, pokemons->atk);
+        my_printf(" %d defense,",  pokemons->def);
+        my_printf(" %d speed and %d health", pokemons->spd, pokemons->health);
         my_putchar('\n');
     }
 }

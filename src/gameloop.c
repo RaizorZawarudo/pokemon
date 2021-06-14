@@ -9,11 +9,10 @@
 #include "../include/helper.h"
 #include "../include/my.h"
 
-
 void copy_data(llist_t *pok1, llist_t *pok2, llist_t *pokemons, char **av)
 {
     llist_t *current = pokemons->prev;
-    for (; current!= NULL; current = current->next) {
+    for (; current != NULL; current = current->next) {
         if (!strcmp(av[1], current->name)) {
             pok1->name = current->name;
             pok1->health = current->health;
@@ -62,7 +61,8 @@ void attack_cycle(llist_t *pok1, llist_t *pok2)
 
     if (pok2->health < 0)
         pok2->health = 0;
-    printf("%s loses %d health (%d left)\n", pok2->name, damage_dealt, pok2->health);
+    printf("%s loses %d health (%d left)\n", pok2->name, damage_dealt,
+    pok2->health);
 }
 
 void gameloop(llist_t *pokemons, char **av)
@@ -75,15 +75,13 @@ void gameloop(llist_t *pokemons, char **av)
     if (pok2->spd > pok1->spd)
         swapper(pok1, pok2);
     while (gameover == 0) {
-        attack_cycle(pok1, pok2);   
+        attack_cycle(pok1, pok2);
         gameover = end_fight(pok1, pok2);
         if (gameover == 0) {
             attack_cycle(pok2, pok1);
-            gameover= end_fight(pok1, pok2);
+            gameover = end_fight(pok1, pok2);
         }
     }
-    /* free(pok1->name);
-    free(pok2->name); */
     free(pok1);
     free(pok2);
 }
