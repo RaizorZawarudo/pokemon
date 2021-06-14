@@ -63,5 +63,6 @@ llist_t *create_list(void)
     list->def = 0;
     list->spd = 0;
     list->health = 0;
+    list->size = 0;
     return (list);
 }

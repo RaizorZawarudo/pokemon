@@ -46,6 +46,8 @@ char *read_file(char *filepath)
 
     stat(filepath, &sb);
     buffer = malloc(sizeof(char) * (sb.st_size + 1));
+    if (buffer == NULL)
+        exit(84);
     memset(buffer, 0, sizeof(char) * (sb.st_size + 1));
     if (fd < 0) {
         output_error("File opening failed.\n");

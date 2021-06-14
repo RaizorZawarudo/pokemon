@@ -44,6 +44,8 @@ char *make_relative(char *path, char *file)
     int i = 0;
     char *relative = malloc(sizeof(char) * (8 + strlen(file)));
 
+    if (relative == NULL)
+        exit(84);
     for (; i < 8 ; i++)
         relative[i] = path[i];
     for (int j = 0; file[j] != '\0'; j++) {
