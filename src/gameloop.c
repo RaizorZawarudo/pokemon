@@ -48,7 +48,7 @@ int end_fight(llist_t *pok1, llist_t *pok2)
 
 void attack_cycle(llist_t *pok1, llist_t *pok2)
 {
-    int damage = rand() % pok1->atk + 1;
+    int damage = rand() % (pok1->atk + 1);
     int damage_dealt = 0;
 
     if (damage > pok2->def) {

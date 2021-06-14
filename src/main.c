@@ -89,7 +89,7 @@ int main(int ac, char **av)
     create_pokemon_database(pokemons, parsed_csv, "pokecfg");
     if (!check_arguments(ac, av, pokemons))
         return (0);
-    //sort_by_name(pokemons);  
+    sort_by_name(pokemons);  
     print_pokemon_list(pokemons);
     gameloop(pokemons, av);
     return 0;
