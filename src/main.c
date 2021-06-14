@@ -23,6 +23,7 @@ int check_arguments(int ac, char **av, llist_t *pokemons)
     int first_arg_true = 0;
     int second_arg_true = 0;
     llist_t *current = pokemons->prev;
+
     if (ac != 3)
         return 0;
     for (; current != NULL; current = current->next) {
@@ -81,14 +82,14 @@ int main(int ac, char **av)
     llist_t *pokemons = create_list();
     csv *parsed_csv = malloc(sizeof(csv));
 
-    srand(time(NULL));
     if (pokemons == NULL)
-        return 0;
+        return 84;
     if (parsed_csv == NULL)
-        return 0;
+        return 84;
+    srand(time(NULL));
     create_pokemon_database(pokemons, parsed_csv, "pokecfg");
     if (!check_arguments(ac, av, pokemons))
-        return (0);
+        return (84);
     sort_by_name(pokemons);
     print_pokemon_list(pokemons);
     gameloop(pokemons, av);

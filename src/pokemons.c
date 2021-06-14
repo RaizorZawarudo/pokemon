@@ -22,6 +22,8 @@ void swapper(llist_t *node1, llist_t *node2)
 {
     llist_t *tempvar = malloc(sizeof(llist_t));
 
+    if (tempvar == NULL)
+        exit(84);
     tempvar->name = node1->name;
     tempvar->atk = node1->atk;
     tempvar->def = node1->def;

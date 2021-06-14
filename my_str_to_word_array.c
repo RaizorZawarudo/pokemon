@@ -51,7 +51,7 @@ char **my_str_to_word_array(char *str, char sep)
             in_word = 1;
             j++;
             k = 1;
-            output[j] = malloc_w(sizeof(char) * (word_length(str, i, sep) +1));
+            output[j] = malloc_w(sizeof(char) * (word_length(str, i, sep) + 2));
             output[j][k - 1] = str[i];
         } else if (str[i] != sep) {
             output[j][k] = str[i];

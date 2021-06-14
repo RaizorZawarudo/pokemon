@@ -12,6 +12,7 @@
 void copy_data(llist_t *pok1, llist_t *pok2, llist_t *pokemons, char **av)
 {
     llist_t *current = pokemons->prev;
+
     for (; current != NULL; current = current->next) {
         if (!strcmp(av[1], current->name)) {
             pok1->name = current->name;
@@ -71,6 +72,8 @@ void gameloop(llist_t *pokemons, char **av)
     llist_t *pok1 = malloc(sizeof(llist_t));
     llist_t *pok2 = malloc(sizeof(llist_t));
 
+    if (pok1 == NULL || pok2 == NULL)
+        exit(84);
     copy_data(pok1, pok2, pokemons, av);
     if (pok2->spd > pok1->spd)
         swapper(pok1, pok2);
