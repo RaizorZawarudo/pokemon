@@ -35,6 +35,9 @@ typedef struct active_pokemon {
     int size;
 } active_pokemon;
 
+void swapper(llist_t *node1, llist_t *node2);
+void swap_info(llist_t *node1, llist_t *node2);
+void gameloop(llist_t *pokemons, char **av);
 void sort_by_name(llist_t *pokemons);
 char **my_str_to_word_array(char *str, char sep);
 csv *parse_data(char *content, csv *output);

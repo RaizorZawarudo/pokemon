@@ -11,45 +11,44 @@
 
 void swap_info(llist_t *node1, llist_t *node2)
 {
-    node1->name = node2->name;
+    node1->name = strdup(node2->name);
     node1->atk = node2->atk;
     node1->def = node2->def;
     node1->spd = node2->spd;
     node1->health = node2->health;
-    node1->size = node2->size;
 }
 
 void swapper(llist_t *node1, llist_t *node2)
 {
     llist_t *tempvar = malloc(sizeof(llist_t));
 
-    tempvar->name = node1->name;
+    tempvar->name = strdup(node1->name);
     tempvar->atk = node1->atk;
     tempvar->def = node1->def;
     tempvar->spd = node1->spd;
     tempvar->health = node1->health;
-    tempvar->size = node1->size;
     swap_info(node1, node2);
-    node2->name = tempvar->name;
+    node2->name = strdup(tempvar->name);
     node2->atk = tempvar->atk;
     node2->def = tempvar->def;
     node2->spd = tempvar->spd;
     node2->health = tempvar->health;
-    node2->size = tempvar->size;
-    free(tempvar);
+    //free(tempvar);
 }
 
 
 void sort_by_name(llist_t *pokemons)
 {
-    llist_t *temp1 = NULL;
-    llist_t *temp2 = NULL;
+    llist_t *temp1 = malloc(sizeof(llist_t));;
+    llist_t *temp2 = malloc(sizeof(llist_t));;
     char *temp1name = NULL;
     char *temp2name = NULL;
 
-    for (int i = pokemons->prev->size - 2; i >= 0; i--) {
+    for (int i = pokemons->size - 2; i >= 0; i--) {
         temp1 = pokemons->prev;
+        temp1->name = strdup(pokemons->prev->name);
         temp2 = temp1->next;
+        temp2->name = strdup(temp1->next->name);
         for (int j = 0; j <= i; j++) {
             temp1name = my_strlowcase(temp1->name);
             temp2name = my_strlowcase(temp2->name);

@@ -12,6 +12,7 @@ SRC	=	src/main.c \
 		csv_parser.c \
 		free_everything.c \
 		src/pokemons.c \
+		src/gameloop.c
 
 NAME	=	pokemon
 

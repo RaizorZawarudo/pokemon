@@ -5,6 +5,7 @@
 ** main
 */
 
+#include <time.h>
 #include <dirent.h>
 #include "../include/helper.h"
 #include "../include/my.h"
@@ -80,6 +81,7 @@ int main(int ac, char **av)
     llist_t *pokemons = create_list();
     csv *parsed_csv = malloc(sizeof(csv));
 
+    srand(time(NULL));
     if (pokemons == NULL)
         return 0;
     if (parsed_csv == NULL)
@@ -87,7 +89,8 @@ int main(int ac, char **av)
     create_pokemon_database(pokemons, parsed_csv, "pokecfg");
     if (!check_arguments(ac, av, pokemons))
         return (0);
-    sort_by_name(pokemons);  
+    //sort_by_name(pokemons);  
     print_pokemon_list(pokemons);
+    gameloop(pokemons, av);
     return 0;
 }
